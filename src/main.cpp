@@ -128,5 +128,10 @@ int main() {
 
 	// cout << "Everything is working correctly: " << (testCheckIfBst() ? "true"
 	// : "false") << endl;
+
+	Node newClass(10, new Node(4, new Node(2), new Node(6)), new Node(14));
+	
+	newClass.inOrder(&newClass);
+
 	return 0;
 }
