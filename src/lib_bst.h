@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include <iostream>
 #include <string>
@@ -315,7 +315,7 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 			return;
 		}
 	}
-}
+}*/
 
 /*void deleteNodeRecursive(int datoFinale, Node* strutturaIniziale) {
 	Node* strutturaTemp = strutturaIniziale;
@@ -409,7 +409,7 @@ strutturaTemp5->data << endl;
 			return;
 		}
 	}
-}*/
+}
 
 //
 
@@ -528,7 +528,7 @@ void createBst(Node* root, int lengthArray = 1) {
 		} else if (recursiveLoop == false) {
 			if (searchForSameDataRecursive(
 					nodi[i],
-					root) /*searchForSameDataNodeRecursive(nodi[i], root)*/) {
+					root)) {
 				updateDuplicateTree(nodi[i], *root);
 			} else {
 				Node* nuovo = new Node(nodi[i]);
@@ -544,7 +544,7 @@ void createBst(Node* root, int lengthArray = 1) {
 
 	delete[] nodi;
 	nodi = nullptr;
-}
+}*/
 
 // Functions in the Library:
 //

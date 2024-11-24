@@ -1,9 +1,9 @@
-//#include "Node.h"
-#include "lib_bst.h"
+#include "Node.h"
+//#include "lib_bst.h"
 
 using namespace std;
 
-bool testCheckIfBst() {
+/*bool testCheckIfBst() {
 	bool everythingWorks = true;
 
 	cout << "It's a BST: "
@@ -79,14 +79,14 @@ bool testCheckIfBst() {
 	}
 
 	return everythingWorks;
-}
+}*/
 
 int main() {
 	/*Node root(20);
 
 	createBst(&root, 20);*/
 
-	Node root(20,
+	/*Node root(20,
 			  new Node(10, new Node(5, new Node(2)),
 					   new Node(13, nullptr, new Node(16))),
 			  new Node(40));
@@ -109,7 +109,7 @@ int main() {
 	cout << "Height at 5 " << checkHeightOfNodeBst(&root, 5) << endl;
 	cout << "Height at 2 " << checkHeightOfNodeBst(&root, 2) << endl;
 	cout << "Height at 16 " << checkHeightOfNodeBst(&root, 16) << endl;
-	cout << "Height at 40 " << checkHeightOfNodeBst(&root, 40) << endl;
+	cout << "Height at 40 " << checkHeightOfNodeBst(&root, 40) << endl;*/
 	/*deleteNodeLoop(-100, &root);
 
 	cout << "After deletion of -100" << endl << endl;
