@@ -16,5 +16,5 @@ class Node {
 
 	Node* insertR(int k);
 
-	void inOrder();
+	void inOrder(Node* root);
 };
