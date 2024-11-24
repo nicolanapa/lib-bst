@@ -22,7 +22,8 @@ struct Node {
 
 // Search if a Data is already in a BST
 // One version returns true/false
-// The other returns the pointer to the found Node (or nullptr if it doesn't exists)
+// The other returns the pointer to the found Node (or nullptr if it doesn't
+// exists)
 
 bool searchForSameDataLoop(int datoFinale, Node* strutturaIniziale) {
 	Node* strutturaTemp = strutturaIniziale;
@@ -30,7 +31,9 @@ bool searchForSameDataLoop(int datoFinale, Node* strutturaIniziale) {
 	int datoFinaleTrovato = NULL;
 	bool trovato = false;
 
-	while ((strutturaTemp->left != nullptr && datoFinale < strutturaTemp->data) || (strutturaTemp->right != nullptr && datoFinale > strutturaTemp->data)) {
+	while (
+		(strutturaTemp->left != nullptr && datoFinale < strutturaTemp->data) ||
+		(strutturaTemp->right != nullptr && datoFinale > strutturaTemp->data)) {
 		if (datoFinale < strutturaTemp->data) {
 			strutturaTemp = strutturaTemp->left;
 		} else if (datoFinale > strutturaTemp->data) {
@@ -52,7 +55,9 @@ Node* searchForSameDataNodeLoop(int datoFinale, Node* strutturaIniziale) {
 	int datoFinaleTrovato = NULL;
 	bool trovato = false;
 
-	while ((strutturaTemp->left != nullptr && datoFinale < strutturaTemp->data) || (strutturaTemp->right != nullptr && datoFinale > strutturaTemp->data)) {
+	while (
+		(strutturaTemp->left != nullptr && datoFinale < strutturaTemp->data) ||
+		(strutturaTemp->right != nullptr && datoFinale > strutturaTemp->data)) {
 		if (datoFinale < strutturaTemp->data) {
 			strutturaTemp = strutturaTemp->left;
 		} else if (datoFinale > strutturaTemp->data) {
@@ -70,7 +75,8 @@ Node* searchForSameDataNodeLoop(int datoFinale, Node* strutturaIniziale) {
 
 // Recursive version of searchForSameDataX
 
-bool searchForSameDataRecursive(int datoFinale, Node* strutturaIniziale, bool result = false) {
+bool searchForSameDataRecursive(int datoFinale, Node* strutturaIniziale,
+								bool result = false) {
 	if (strutturaIniziale == nullptr) {
 		return false;
 	} else if (strutturaIniziale->data == datoFinale) {
@@ -78,17 +84,20 @@ bool searchForSameDataRecursive(int datoFinale, Node* strutturaIniziale, bool re
 	}
 
 	if (datoFinale < strutturaIniziale->data) {
-		result = searchForSameDataRecursive(datoFinale, strutturaIniziale->left, result);
+		result = searchForSameDataRecursive(datoFinale, strutturaIniziale->left,
+											result);
 	}
 
 	if (datoFinale > strutturaIniziale->data) {
-		result = searchForSameDataRecursive(datoFinale, strutturaIniziale->right, result);
+		result = searchForSameDataRecursive(datoFinale,
+											strutturaIniziale->right, result);
 	}
 
 	return result;
 }
 
-Node* searchForSameDataNodeRecursive(int datoFinale, Node* strutturaIniziale, Node* result = nullptr) {
+Node* searchForSameDataNodeRecursive(int datoFinale, Node* strutturaIniziale,
+									 Node* result = nullptr) {
 	if (strutturaIniziale == nullptr) {
 		return nullptr;
 	} else if (strutturaIniziale->data == datoFinale) {
@@ -96,11 +105,13 @@ Node* searchForSameDataNodeRecursive(int datoFinale, Node* strutturaIniziale, No
 	}
 
 	if (datoFinale < strutturaIniziale->data) {
-		*result = searchForSameDataRecursive(datoFinale, strutturaIniziale->left, result);
+		*result = searchForSameDataRecursive(datoFinale,
+											 strutturaIniziale->left, result);
 	}
 
 	if (datoFinale > strutturaIniziale->data) {
-		*result = searchForSameDataRecursive(datoFinale, strutturaIniziale->right, result);
+		*result = searchForSameDataRecursive(datoFinale,
+											 strutturaIniziale->right, result);
 	}
 
 	return result;
@@ -130,29 +141,35 @@ void setTreeLoop(int datoFinale, Node& strutturaIniziale, Node nodoFinale) {
 	}
 }
 
-Node* setTreeRecursive(int datoFinale, Node* strutturaIniziale, Node nodoFinale) {
+Node* setTreeRecursive(int datoFinale, Node* strutturaIniziale,
+					   Node nodoFinale) {
 	if (strutturaIniziale == nullptr) {
 		return new Node(nodoFinale);
 	}
 
 	if (datoFinale < strutturaIniziale->data) {
-		strutturaIniziale->left = setTreeRecursive(datoFinale, strutturaIniziale->left, nodoFinale);
+		strutturaIniziale->left =
+			setTreeRecursive(datoFinale, strutturaIniziale->left, nodoFinale);
 	}
 
 	if (datoFinale > strutturaIniziale->data) {
-		strutturaIniziale->right = setTreeRecursive(datoFinale, strutturaIniziale->right, nodoFinale);
+		strutturaIniziale->right =
+			setTreeRecursive(datoFinale, strutturaIniziale->right, nodoFinale);
 	}
 
 	return strutturaIniziale;
 }
 
 // Updates the "duplicati" value
-// Used mostly after checking if a value already exists in a BST -> searchForSameData Functions
+// Used mostly after checking if a value already exists in a BST ->
+// searchForSameData Functions
 
 void updateDuplicateTree(int datoFinale, Node& strutturaIniziale) {
 	Node* strutturaTemp = &strutturaIniziale;
 
-	while ((strutturaTemp->left != nullptr && datoFinale < strutturaTemp->data) || (strutturaTemp->right != nullptr && datoFinale > strutturaTemp->data)) {
+	while (
+		(strutturaTemp->left != nullptr && datoFinale < strutturaTemp->data) ||
+		(strutturaTemp->right != nullptr && datoFinale > strutturaTemp->data)) {
 		if (datoFinale < strutturaTemp->data) {
 			strutturaTemp = strutturaTemp->left;
 		} else if (datoFinale > strutturaTemp->data) {
@@ -176,7 +193,7 @@ bool checkIfBst(Node* root, bool check = true) {
 		check = checkIfBst(root->left, check);
 
 		if (root->data < root->left->data) {
-			//cout << root->data << " < " << root->left->data << endl;
+			// cout << root->data << " < " << root->left->data << endl;
 			check = false;
 		}
 	}
@@ -185,7 +202,7 @@ bool checkIfBst(Node* root, bool check = true) {
 		check = checkIfBst(root->right, check);
 
 		if (root->data > root->right->data) {
-			//cout << root->data << " < " << root->right->data << endl;
+			// cout << root->data << " < " << root->right->data << endl;
 			check = false;
 		}
 	}
@@ -194,8 +211,9 @@ bool checkIfBst(Node* root, bool check = true) {
 }
 
 // Deletes a given Node
-// You can either use a pointer and dinamic memory -> Node* x = new Node(); and deleteNodeLoop(datoFinale, x)
-// or a normal Node -> Node x(); and deleteNodeLoop(datoFinale, &x);
+// You can either use a pointer and dinamic memory -> Node* x = new Node(); and
+// deleteNodeLoop(datoFinale, x) or a normal Node -> Node x(); and
+// deleteNodeLoop(datoFinale, &x);
 
 void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 	Node* strutturaTemp = strutturaIniziale;
@@ -228,13 +246,17 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 
 	if (strutturaTemp3->left != nullptr) {
 		if (strutturaTemp3->left->data == datoFinale) {
-			if (strutturaTemp3->left->left == nullptr && strutturaTemp3->left->right == nullptr) {
+			if (strutturaTemp3->left->left == nullptr &&
+				strutturaTemp3->left->right == nullptr) {
 				strutturaTemp3->left = nullptr;
-			} else if (strutturaTemp3->left->left != nullptr && strutturaTemp3->left->right == nullptr) {
+			} else if (strutturaTemp3->left->left != nullptr &&
+					   strutturaTemp3->left->right == nullptr) {
 				strutturaTemp3->left = strutturaTemp3->left->left;
-			} else if (strutturaTemp3->left->left == nullptr && strutturaTemp3->left->right != nullptr) {
+			} else if (strutturaTemp3->left->left == nullptr &&
+					   strutturaTemp3->left->right != nullptr) {
 				strutturaTemp3->left = strutturaTemp3->left->right;
-			} else if (strutturaTemp3->left->left != nullptr && strutturaTemp3->left->right != nullptr) {
+			} else if (strutturaTemp3->left->left != nullptr &&
+					   strutturaTemp3->left->right != nullptr) {
 				Node* strutturaTemp4 = strutturaTemp3->left;
 				Node* strutturaTemp5 = new Node;
 
@@ -244,7 +266,8 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 					strutturaTemp4 = strutturaTemp4->left;
 				}
 
-				//cout << "The lowest value found from the Parent: " << strutturaTemp5->data << endl;
+				// cout << "The lowest value found from the Parent: " <<
+				// strutturaTemp5->data << endl;
 
 				int valueToChange = strutturaTemp5->data;
 
@@ -259,13 +282,17 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 
 	if (strutturaTemp3->right != nullptr) {
 		if (strutturaTemp3->right->data == datoFinale) {
-			if (strutturaTemp3->right->left == nullptr && strutturaTemp3->right->right == nullptr) {
+			if (strutturaTemp3->right->left == nullptr &&
+				strutturaTemp3->right->right == nullptr) {
 				strutturaTemp3->right = nullptr;
-			} else if (strutturaTemp3->right->left != nullptr && strutturaTemp3->right->right == nullptr) {
+			} else if (strutturaTemp3->right->left != nullptr &&
+					   strutturaTemp3->right->right == nullptr) {
 				strutturaTemp3->right = strutturaTemp3->right->left;
-			} else if (strutturaTemp3->right->left == nullptr && strutturaTemp3->right->right != nullptr) {
+			} else if (strutturaTemp3->right->left == nullptr &&
+					   strutturaTemp3->right->right != nullptr) {
 				strutturaTemp3->right = strutturaTemp3->right->right;
-			} else if (strutturaTemp3->right->left != nullptr && strutturaTemp3->right->right != nullptr) {
+			} else if (strutturaTemp3->right->left != nullptr &&
+					   strutturaTemp3->right->right != nullptr) {
 				Node* strutturaTemp4 = strutturaTemp3->right;
 				Node* strutturaTemp5 = new Node;
 
@@ -275,7 +302,8 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 					strutturaTemp4 = strutturaTemp4->right;
 				}
 
-				//cout << "The lowest value found from the Parent: " << strutturaTemp5->data << endl;
+				// cout << "The lowest value found from the Parent: " <<
+				// strutturaTemp5->data << endl;
 
 				int valueToChange = strutturaTemp5->data;
 
@@ -320,15 +348,15 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 
 	if (strutturaTemp3->left != nullptr) {
 		if (strutturaTemp3->left->data == datoFinale) {
-			if (strutturaTemp3->left->left == nullptr && strutturaTemp3->left->right == nullptr) {
-				strutturaTemp3->left = nullptr;
-			} else if (strutturaTemp3->left->left != nullptr && strutturaTemp3->left->right == nullptr) {
-				strutturaTemp3->left = strutturaTemp3->left->left;
-			} else if (strutturaTemp3->left->left == nullptr && strutturaTemp3->left->right != nullptr) {
-				strutturaTemp3->left = strutturaTemp3->left->right;
-			} else if (strutturaTemp3->left->left != nullptr && strutturaTemp3->left->right != nullptr) {
-				Node* strutturaTemp4 = strutturaTemp3->left;
-				Node* strutturaTemp5 = new Node;
+			if (strutturaTemp3->left->left == nullptr &&
+strutturaTemp3->left->right == nullptr) { strutturaTemp3->left = nullptr; } else
+if (strutturaTemp3->left->left != nullptr && strutturaTemp3->left->right ==
+nullptr) { strutturaTemp3->left = strutturaTemp3->left->left; } else if
+(strutturaTemp3->left->left == nullptr && strutturaTemp3->left->right !=
+nullptr) { strutturaTemp3->left = strutturaTemp3->left->right; } else if
+(strutturaTemp3->left->left != nullptr && strutturaTemp3->left->right !=
+nullptr) { Node* strutturaTemp4 = strutturaTemp3->left; Node* strutturaTemp5 =
+new Node;
 
 				while (strutturaTemp4 != nullptr) {
 					strutturaTemp5 = strutturaTemp4;
@@ -336,7 +364,8 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 					strutturaTemp4 = strutturaTemp4->left;
 				}
 
-				//cout << "The lowest value found from the Parent: " << strutturaTemp5->data << endl;
+				//cout << "The lowest value found from the Parent: " <<
+strutturaTemp5->data << endl;
 
 				int valueToChange = strutturaTemp5->data;
 
@@ -351,15 +380,15 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 
 	if (strutturaTemp3->right != nullptr) {
 		if (strutturaTemp3->right->data == datoFinale) {
-			if (strutturaTemp3->right->left == nullptr && strutturaTemp3->right->right == nullptr) {
-				strutturaTemp3->right = nullptr;
-			} else if (strutturaTemp3->right->left != nullptr && strutturaTemp3->right->right == nullptr) {
-				strutturaTemp3->right = strutturaTemp3->right->left;
-			} else if (strutturaTemp3->right->left == nullptr && strutturaTemp3->right->right != nullptr) {
-				strutturaTemp3->right = strutturaTemp3->right->right;
-			} else if (strutturaTemp3->right->left != nullptr && strutturaTemp3->right->right != nullptr) {
-				Node* strutturaTemp4 = strutturaTemp3->right;
-				Node* strutturaTemp5 = new Node;
+			if (strutturaTemp3->right->left == nullptr &&
+strutturaTemp3->right->right == nullptr) { strutturaTemp3->right = nullptr; }
+else if (strutturaTemp3->right->left != nullptr && strutturaTemp3->right->right
+== nullptr) { strutturaTemp3->right = strutturaTemp3->right->left; } else if
+(strutturaTemp3->right->left == nullptr && strutturaTemp3->right->right !=
+nullptr) { strutturaTemp3->right = strutturaTemp3->right->right; } else if
+(strutturaTemp3->right->left != nullptr && strutturaTemp3->right->right !=
+nullptr) { Node* strutturaTemp4 = strutturaTemp3->right; Node* strutturaTemp5 =
+new Node;
 
 				while (strutturaTemp4 != nullptr) {
 					strutturaTemp5 = strutturaTemp4;
@@ -367,7 +396,8 @@ void deleteNodeLoop(int datoFinale, Node* strutturaIniziale) {
 					strutturaTemp4 = strutturaTemp4->right;
 				}
 
-				//cout << "The lowest value found from the Parent: " << strutturaTemp5->data << endl;
+				//cout << "The lowest value found from the Parent: " <<
+strutturaTemp5->data << endl;
 
 				int valueToChange = strutturaTemp5->data;
 
@@ -432,7 +462,7 @@ int checkHeightOfWholeBst(Node* strutturaIniziale, int height = 0) {
 	int height1 = checkHeightOfWholeBst(strutturaIniziale->left, height + 1);
 	int height2 = checkHeightOfWholeBst(strutturaIniziale->right, height + 1);
 
-	return (height1 >= height2 ? height1 :  height2) + 1;
+	return (height1 >= height2 ? height1 : height2) + 1;
 }
 
 int checkHeightOfNodeBst(Node* strutturaIniziale, int datoFinale) {
@@ -496,7 +526,9 @@ void createBst(Node* root, int lengthArray = 1) {
 				setTreeLoop(nodi[i], *root, *nuovo);
 			}
 		} else if (recursiveLoop == false) {
-			if (searchForSameDataRecursive(nodi[i], root)/*searchForSameDataNodeRecursive(nodi[i], root)*/) {
+			if (searchForSameDataRecursive(
+					nodi[i],
+					root) /*searchForSameDataNodeRecursive(nodi[i], root)*/) {
 				updateDuplicateTree(nodi[i], *root);
 			} else {
 				Node* nuovo = new Node(nodi[i]);
@@ -504,23 +536,23 @@ void createBst(Node* root, int lengthArray = 1) {
 				setTreeRecursive(nodi[i], root, *nuovo);
 			}
 		}
-
 	}
 
 	if (checkIfBst(root) == 0) {
 		cout << "An Error has happened, it's not a BST" << endl;
 	}
 
-	delete [] nodi;
+	delete[] nodi;
 	nodi = nullptr;
 }
 
 // Functions in the Library:
-// 
+//
 // Insert Node, Loop and Recursion -> setTreeLoop and setTreeRecursive
-// Search Node, Loop and Recursion -> searchForSameDataLoop, searchForSameDataNodeLoop, searchForSameDataRecursive, searchForSameDataNodeRecursive
-// Update "duplicati" value, Loop -> updateDuplicateTree
-// Delete a node, Loop -> deleteNodeLoop
+// Search Node, Loop and Recursion -> searchForSameDataLoop,
+// searchForSameDataNodeLoop, searchForSameDataRecursive,
+// searchForSameDataNodeRecursive Update "duplicati" value, Loop ->
+// updateDuplicateTree Delete a node, Loop -> deleteNodeLoop
 //
 // Check if a BT is a BST, Recursion -> checkIfBst
 // Check max height of a BST, Recursion -> checkHeightOfWholeBst
