@@ -1,44 +1,51 @@
 #include "Node.h"
 
-Node::Node(int data, Node* lchild, Node* rchild) {
+Node::Node(int data, int weight, Node* lchild, Node* rchild) {
 	this->data = data;
-	this->weight = 0;
+	this->weight = weight;
 	this->lchild = lchild;
 	this->rchild = rchild;
 };
 
 Node* Node::insertR(int k) {
-	Node* newNode = new Node(this->data, this->lchild, this->rchild);
-
-	if (newNode == nullptr) {
-		return new Node(k);
+	if (this->data == k) {
+		this->weight += 1;
+		return this;
 	}
 
-	if (newNode->data == k) {
-		newNode->weight++;
+	if (k < this->data) {
+		if (this->lchild == nullptr) {
+			this->lchild = new Node(k);
 
-		return newNode;
+			return this;
+		} else {
+			this->lchild = lchild->insertR(k);
+		}
 	}
 
-	if (k < newNode->data) {
-		newNode->lchild = insertR(k);
+	if (k > this->data) {
+		if (this->rchild == nullptr) {
+			this->rchild = new Node(k);
+
+			return this;
+		} else {
+			this->rchild = rchild->insertR(k);
+		}
 	}
 
-	if (k > newNode->data) {
-		newNode->rchild = insertR(k);
-	}
-
-	return newNode;
+	return this;
 }
 
-void Node::inOrder(Node *root) {
-	if (root == nullptr) {
+void Node::inOrder() {
+	if (this == nullptr) {
 		return;
 	}
 
-	inOrder(root->lchild);
+	this->lchild = this->lchild;
+	this->lchild->inOrder();
 
-	cout << root->data << endl;
+	cout << this->data << " " << this->weight << endl;
 
-	inOrder(root->rchild);
+	this->rchild = this->rchild;
+	this->rchild->inOrder();
 }

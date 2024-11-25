@@ -12,9 +12,10 @@ class Node {
 	Node* rchild;
 
 	public:
-	Node(int data = 0, Node* lchild = nullptr, Node* rchild = nullptr);
+	Node(int data = 0, int weight = 0, Node* lchild = nullptr,
+		 Node* rchild = nullptr);
 
 	Node* insertR(int k);
 
-	void inOrder(Node* root);
+	void inOrder();
 };
