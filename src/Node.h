@@ -19,7 +19,9 @@ class Node {
 
 	void inOrder();
 
-	Node* searchR(int k);
+	bool searchR(int k);
 
-	Node* searchI(int k);
+	bool searchI(int k);
+
+
 };
