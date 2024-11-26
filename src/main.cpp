@@ -1,5 +1,5 @@
 #include "Node.h"
-//#include "lib_bst.h"
+// #include "lib_bst.h"
 
 using namespace std;
 
@@ -130,12 +130,28 @@ int main() {
 	// : "false") << endl;
 
 	Node newClass(10);
-	
+
 	newClass.insertR(2);
 	newClass.insertR(2);
 	newClass.insertR(4);
 	newClass.insertR(14);
 	newClass.insertR(16);
+
+	newClass.inOrder();
+
+	cout << newClass.searchR(10) << endl;
+	cout << newClass.searchR(2) << endl;
+	cout << newClass.searchR(4) << endl;
+	cout << newClass.searchR(14) << endl;
+	cout << newClass.searchR(16) << endl;
+	newClass.searchR(18);
+
+	cout << newClass.searchI(10) << endl;
+	cout << newClass.searchI(2) << endl;
+	cout << newClass.searchI(4) << endl;
+	cout << newClass.searchI(14) << endl;
+	cout << newClass.searchI(16) << endl;
+	newClass.searchI(18);
 
 	newClass.inOrder();
 
