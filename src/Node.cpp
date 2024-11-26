@@ -7,6 +7,8 @@ Node::Node(int data, int weight, Node* lchild, Node* rchild) {
 	this->rchild = rchild;
 };
 
+Node* Node::insertI(int k) {}
+
 Node* Node::insertR(int k) {
 	if (this->data == k) {
 		this->weight += 1;
@@ -36,6 +38,8 @@ Node* Node::insertR(int k) {
 	return this;
 }
 
+void Node::preOrder() {}
+
 void Node::inOrder() {
 	if (this == nullptr) {
 		return;
@@ -49,6 +53,8 @@ void Node::inOrder() {
 	this->rchild = this->rchild;
 	this->rchild->inOrder();
 }
+
+void Node::postOrder() {}
 
 bool Node::searchI(int k) {
 	Node* tempStruct = this;
@@ -103,4 +109,12 @@ bool Node::searchR(int k) {
 			this->rchild->searchR(k);
 		}
 	}
+}
+
+Node* Node::deleteNode(int k) {
+	return nullptr;
+}
+
+bool Node::isBst() {
+	return false;
 }
