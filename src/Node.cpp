@@ -91,7 +91,7 @@ Node* Node::searchI(int k) {
 
 		return tempStruct;
 	} else {
-		cout << k << "Not Found" << endl;
+		cout << k << " Not Found" << endl;
 
 		return nullptr;
 	}
