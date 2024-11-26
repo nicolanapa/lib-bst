@@ -49,3 +49,52 @@ void Node::inOrder() {
 	this->rchild = this->rchild;
 	this->rchild->inOrder();
 }
+
+Node* Node::searchR(int k) {
+	if (this == nullptr) {
+		cout << k << " Not found" << endl;
+
+		return this;
+	}
+
+	if (this->data == k) {
+		cout << "Found " << this->data << endl;
+
+		return this;
+	}
+
+	if (k < this->data) {
+		this->lchild = lchild->searchR(k);
+	}
+
+	if (k > this->data) {
+		this->rchild = rchild->searchR(k);
+	}
+
+	return this;
+}
+
+Node* Node::searchI(int k) {
+	Node* strutturaTemp = strutturaIniziale;
+
+	int datoFinaleTrovato = NULL;
+	bool trovato = false;
+
+	while ((strutturaTemp->lchild != nullptr &&
+			k < strutturaTemp->data) ||
+		(strutturaTemp->rchild != nullptr &&
+		 k > strutturaTemp->data)) {
+		if (k < strutturaTemp->data) {
+			strutturaTemp = strutturaTemp->lchild;
+		} else if (k > strutturaTemp->data) {
+			strutturaTemp = strutturaTemp->rchild;
+		}
+	}
+
+	if (k == strutturaTemp->data) {
+		datoFinaleTrovato = strutturaTemp->data;
+		trovato = true;
+	}
+
+	return (trovato == true ? strutturaTemp : nullptr);
+}

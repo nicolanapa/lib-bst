@@ -18,4 +18,8 @@ class Node {
 	Node* insertR(int k);
 
 	void inOrder();
+
+	Node* searchR(int k);
+
+	Node* searchI(int k);
 };
