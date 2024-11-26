@@ -19,9 +19,7 @@ class Node {
 
 	void inOrder();
 
-	bool searchR(int k);
-
 	bool searchI(int k);
 
-
+	bool searchR(int k);
 };

@@ -139,19 +139,19 @@ int main() {
 
 	newClass.inOrder();
 
-	cout << newClass.searchR(10) << endl;
-	cout << newClass.searchR(2) << endl;
-	cout << newClass.searchR(4) << endl;
-	cout << newClass.searchR(14) << endl;
-	cout << newClass.searchR(16) << endl;
-	newClass.searchR(18);
-
 	cout << newClass.searchI(10) << endl;
 	cout << newClass.searchI(2) << endl;
 	cout << newClass.searchI(4) << endl;
 	cout << newClass.searchI(14) << endl;
 	cout << newClass.searchI(16) << endl;
 	newClass.searchI(18);
+
+	cout << newClass.searchR(10) << endl;
+	cout << newClass.searchR(2) << endl;
+	cout << newClass.searchR(4) << endl;
+	cout << newClass.searchR(14) << endl;
+	cout << newClass.searchR(16) << endl;
+	newClass.searchR(18);
 
 	newClass.inOrder();
 
