@@ -44,7 +44,7 @@ void Node::inOrder() {
 	this->lchild = this->lchild;
 	this->lchild->inOrder();
 
-	cout << this->data << " " << this->weight << endl;
+	cout << this->data << " of weight " << this->weight << endl;
 
 	this->rchild = this->rchild;
 	this->rchild->inOrder();
