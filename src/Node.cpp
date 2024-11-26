@@ -75,26 +75,24 @@ Node* Node::searchR(int k) {
 }
 
 Node* Node::searchI(int k) {
-	Node* strutturaTemp = strutturaIniziale;
+	Node* tempStruct = this;
 
-	int datoFinaleTrovato = NULL;
-	bool trovato = false;
-
-	while ((strutturaTemp->lchild != nullptr &&
-			k < strutturaTemp->data) ||
-		(strutturaTemp->rchild != nullptr &&
-		 k > strutturaTemp->data)) {
-		if (k < strutturaTemp->data) {
-			strutturaTemp = strutturaTemp->lchild;
-		} else if (k > strutturaTemp->data) {
-			strutturaTemp = strutturaTemp->rchild;
+	while ((tempStruct->lchild != nullptr && k < tempStruct->data) ||
+		   (tempStruct->rchild != nullptr && k > tempStruct->data)) {
+		if (k < tempStruct->data) {
+			tempStruct = tempStruct->lchild;
+		} else if (k > tempStruct->data) {
+			tempStruct = tempStruct->rchild;
 		}
 	}
 
-	if (k == strutturaTemp->data) {
-		datoFinaleTrovato = strutturaTemp->data;
-		trovato = true;
-	}
+	if (k == tempStruct->data) {
+		cout << "Found " << k << endl;
 
-	return (trovato == true ? strutturaTemp : nullptr);
+		return tempStruct;
+	} else {
+		cout << k << "Not Found" << endl;
+
+		return nullptr;
+	}
 }
