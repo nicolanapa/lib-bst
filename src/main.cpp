@@ -137,7 +137,19 @@ int main() {
 	newClass.insertR(14);
 	newClass.insertR(16);
 
+	cout << "preOrder" << endl;
+
+	newClass.preOrder();
+
+	cout << "inOrder" << endl;
+
 	newClass.inOrder();
+
+	cout << "postOrder" << endl;
+
+	newClass.postOrder();
+
+	cout << endl;
 
 	cout << newClass.searchI(10) << endl;
 	cout << newClass.searchI(2) << endl;
@@ -155,7 +167,7 @@ int main() {
 
 	newClass.inOrder();
 
-	cout << endl;
+	cout << endl << endl;
 
 	Node newClass2(10);
 
