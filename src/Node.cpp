@@ -166,5 +166,33 @@ Node* Node::deleteNode(int k) {
 }
 
 bool Node::isBst() {
-	return false;
+	bool check = true;
+
+	if (this == nullptr) {
+		return check;
+	}
+
+	if (this->lchild != nullptr) {
+		cout << "LCHILD " << this->data << " < " << this->lchild->data << endl;
+
+		if (this->data < this->lchild->data) {
+			return false;
+		} else {
+			this->lchild = this->lchild;
+			check = this->lchild->isBst();
+		}
+	}
+
+	if (this->rchild != nullptr) {
+		cout << "RCHILD " << this->data << " > " << this->rchild->data << endl;
+
+		if (this->data > this->rchild->data) {
+			return false;
+		} else {
+			this->rchild = this->rchild;
+			check = this->rchild->isBst();
+		}
+	}
+
+	return check;
 }

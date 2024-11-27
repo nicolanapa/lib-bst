@@ -179,5 +179,19 @@ int main() {
 
 	newClass2.inOrder();
 
+	cout << newClass2.isBst() << endl;
+
+	Node newClass3 = (10, Node(12), Node(9));
+
+	newClass3.insertI(2);
+	newClass3.insertI(2);
+	newClass3.insertI(4);
+	newClass3.insertI(14);
+	newClass3.insertI(16);
+
+	newClass3.inOrder();
+
+	cout << newClass3.isBst() << endl;
+
 	return 0;
 }
