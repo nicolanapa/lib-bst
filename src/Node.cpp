@@ -64,7 +64,19 @@ Node* Node::insertR(int k) {
 	return this;
 }
 
-void Node::preOrder() {}
+void Node::preOrder() {
+	if (this == nullptr) {
+		return;
+	}
+
+	cout << this->data << " of weight " << this->weight << endl;
+
+	this->lchild = this->lchild;
+	this->lchild->preOrder();
+
+	this->rchild = this->rchild;
+	this->rchild->preOrder();
+}
 
 void Node::inOrder() {
 	if (this == nullptr) {
@@ -80,7 +92,19 @@ void Node::inOrder() {
 	this->rchild->inOrder();
 }
 
-void Node::postOrder() {}
+void Node::postOrder() {
+	if (this == nullptr) {
+		return;
+	}
+
+	this->lchild = this->lchild;
+	this->lchild->postOrder();
+
+	this->rchild = this->rchild;
+	this->rchild->postOrder();
+
+	cout << this->data << " of weight " << this->weight << endl;
+}
 
 bool Node::searchI(int k) {
 	Node* tempStruct = this;
