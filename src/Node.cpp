@@ -7,7 +7,33 @@ Node::Node(int data, int weight, Node* lchild, Node* rchild) {
 	this->rchild = rchild;
 };
 
-Node* Node::insertI(int k) {}
+Node* Node::insertI(int k) {
+	Node* tempStruct = this;
+	Node* tempStruct2 = this;
+
+	while (tempStruct != nullptr) {
+		tempStruct2 = tempStruct;
+
+		if (k == tempStruct->data) {
+			tempStruct->weight += 1;
+
+			return this;
+		}
+		if (k < tempStruct->data) {
+			tempStruct = tempStruct->lchild;
+		} else if (k > tempStruct->data) {
+			tempStruct = tempStruct->rchild;
+		}
+	}
+
+	if (k < tempStruct2->data) {
+		tempStruct2->lchild = new Node(k);
+	} else {
+		tempStruct2->rchild = new Node(k);
+	}
+
+	return this;
+}
 
 Node* Node::insertR(int k) {
 	if (this->data == k) {

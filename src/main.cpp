@@ -155,5 +155,17 @@ int main() {
 
 	newClass.inOrder();
 
+	cout << endl;
+
+	Node newClass2(10);
+
+	newClass2.insertI(2);
+	newClass2.insertI(2);
+	newClass2.insertI(4);
+	newClass2.insertI(14);
+	newClass2.insertI(16);
+
+	newClass2.inOrder();
+
 	return 0;
 }
