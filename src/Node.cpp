@@ -197,6 +197,24 @@ bool Node::isBst() {
 	return check;
 }
 
-ostream& operator<<(ostream& os, Node& node) {}
+ostream& operator<<(ostream& os, Node& node) {
+	os << node.data << " of weight " << node.weight << endl;
+
+	if (node.lchild != nullptr) {
+		os << "left " << node.lchild->data << "of weight "
+		   << node.lchild->weight << endl;
+	} else {
+		os << "left nullptr" << endl;
+	}
+
+	if (node.rchild != nullptr) {
+		os << "right " << node.rchild->data << "of weight "
+		   << node.rchild->weight << endl;
+	} else {
+		os << "right nullptr" << endl;
+	}
+
+	return os;
+}
 
 istream& operator>>(istream& is, Node& node) {}
