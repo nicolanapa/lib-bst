@@ -217,4 +217,6 @@ ostream& operator<<(ostream& os, Node& node) {
 	return os;
 }
 
-istream& operator>>(istream& is, Node& node) {}
+istream& operator>>(istream& is, Node& node) {
+	return is;
+}
