@@ -32,4 +32,8 @@ class Node {
 	Node* deleteNode(int k);
 
 	bool isBst();
+
+	friend ostream& operator<<(ostream& os, Node& node);
+
+	friend istream& operator>>(istream& is, Node& node);
 };

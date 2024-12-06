@@ -196,3 +196,7 @@ bool Node::isBst() {
 
 	return check;
 }
+
+ostream& operator<<(ostream& os, Node& node) {}
+
+istream& operator>>(istream& is, Node& node) {}
