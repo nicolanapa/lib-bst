@@ -193,5 +193,15 @@ int main() {
 
 	cout << newClass3.isBst() << endl;
 
+	cout << endl << "Operator Overloading" << endl << endl;
+
+	Node newClass4;
+
+	cout << newClass;
+	cout << newClass2;
+
+	cin >> newClass4;
+	cout << newClass4;
+
 	return 0;
 }
