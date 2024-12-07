@@ -225,5 +225,37 @@ istream& operator>>(istream& is, Node& node) {
 	is >> node.weight;
 	cout << endl;
 
+	cout << "Want to create a lchild?" << endl;
+	bool left;
+	cin >> left;
+
+	if (left) {
+		Node* leftNode = new Node;
+		node.lchild = leftNode;
+
+		cout << "Data: ";
+		is >> node.lchild->data;
+
+		cout << "Of weight: ";
+		is >> node.lchild->weight;
+		cout << endl;
+	}
+
+	cout << "Want to create a rchild?" << endl;
+	bool right;
+	cin >> right;
+
+	if (right) {
+		Node* rightNode = new Node;
+		node.rchild = rightNode;
+
+		cout << "Data: ";
+		is >> node.rchild->data;
+
+		cout << "Of weight: ";
+		is >> node.rchild->weight;
+		cout << endl;
+	}
+
 	return is;
 }
