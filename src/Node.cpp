@@ -218,5 +218,12 @@ ostream& operator<<(ostream& os, Node& node) {
 }
 
 istream& operator>>(istream& is, Node& node) {
+	cout << "Data: ";
+	is >> node.data;
+
+	cout << "Of weight: ";
+	is >> node.weight;
+	cout << endl;
+
 	return is;
 }
