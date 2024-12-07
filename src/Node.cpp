@@ -257,5 +257,7 @@ istream& operator>>(istream& is, Node& node) {
 		cout << endl;
 	}
 
+	cout << "This is a BST: " << node.isBst() << endl;
+
 	return is;
 }
