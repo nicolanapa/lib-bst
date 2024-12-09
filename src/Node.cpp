@@ -162,7 +162,31 @@ bool Node::searchR(int k) {
 }
 
 Node* Node::deleteNode(int k) {
-	return nullptr;
+	if (this->data == k) {
+		return nullptr;
+	}
+
+	if (k < this->data) {
+		if (this->lchild == nullptr) {
+			this->lchild = new Node(k);
+
+			return this;
+		} else {
+			this->lchild = lchild->deleteNode(k);
+		}
+	}
+
+	if (k > this->data) {
+		if (this->rchild == nullptr) {
+			this->rchild = new Node(k);
+
+			return this;
+		} else {
+			this->rchild = rchild->deleteNode(k);
+		}
+	}
+
+	return this;
 }
 
 bool Node::isBst() {
