@@ -169,6 +169,13 @@ int main() {
 
 	cout << endl << endl;
 
+	newClass.deleteNode(4);
+	newClass.deleteNode(16);
+
+	newClass.inOrder();
+
+	cout << endl << endl;
+
 	Node newClass2(10);
 
 	newClass2.insertI(2);
